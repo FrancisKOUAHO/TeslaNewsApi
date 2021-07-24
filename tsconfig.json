@@ -1,12 +1,20 @@
 {
     "compilerOptions": {
-        "module": "commonjs",
-        "esModuleInterop": true,
-        "outDir": "dist",
         "target": "es6",
-        "strict": true
+        "module": "commonjs",
+        "outDir": "dist",
+        "rootDir": "src",
+        "strict": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "typeRoots": [
+            "./custom_typings",
+            "./node_modules/@types"
+        ]
     },
     "include": [
-        "src/**/*"
-    ]
+        "src/**/*",
+        "src/index.ts"
+    ],
+    "exclude": ["src/types/*.ts", "node_modules", ".vscode"]
 }

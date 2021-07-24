@@ -1,6 +1,19 @@
-version: 0.1
+version: 0.2
+
 phases:
   install:
+    runtime-versions:
+      nodejs: 12
     commands:
+      - npm install -g typescript
       - npm install
-      - npm run build
+  build:
+    commands:
+      - tsc
+
+artifacts:
+  type: zip
+  files:
+    - package.json
+    - package-lock.json
+    - 'dist/**/*'
