@@ -2,7 +2,7 @@
   "name": "TeslaNewsApi",
   "version": "1.0.0",
   "main": "dist/app.js",
-  "engines": { "node" : "14.16.0" },
+  "engines": { "node" : "14.0.0" },
   "engineStrict" : true,
   "scripts": {
     "build": "tsc",
