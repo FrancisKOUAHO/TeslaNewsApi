@@ -13,7 +13,7 @@ import { apiDocumentation } from "./docs/apidoc";
 dotenv.config();
 
 const HOST = process.env.HOST || "http://localhost";
-const PORT = parseInt(process.env.PORT || "4500");
+const PORT = parseInt(process.env.PORT || "8080");
 
 const app = express();
 
