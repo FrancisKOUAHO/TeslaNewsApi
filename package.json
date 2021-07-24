@@ -1,10 +1,14 @@
 {
   "name": "TeslaNewsApi",
+  "engines": {
+    "node": "12.18.3"
+  },
   "version": "1.0.0",
-  "main": "app.js",
+  "main": "dist/app.js",
   "scripts": {
+    "build": "tsc",
     "dev": "concurrently -k -n \"Typescript,Node\" -p \"[{name}]\" -c \"blue,green\" \"tsc --watch\" \"nodemon dist/app.js\"",
-    "start": "tsc && node dist/index.js"
+    "start": "tsc && node dist/app.js"
   },
   "license": "MIT",
   "devDependencies": {
