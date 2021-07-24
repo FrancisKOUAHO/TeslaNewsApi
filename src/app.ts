@@ -13,7 +13,7 @@ import { apiDocumentation } from "./docs/apidoc";
 dotenv.config();
 
 const HOST = process.env.HOST || "http://localhost";
-const port = parseInt(process.env.PORT || "8080");
+const PORT = parseInt(process.env.PORT || "8081");
 
 const app = express();
 
@@ -31,8 +31,8 @@ app.get("/", (req, res) => {
   return res.json({ message: "Hello World!" });
 });
 
-app.listen(port, async () => {
+app.listen(PORT, async () => {
   await connectToDatabase();
 
-  console.log(`Application started on URL ${HOST}:${port}`);
+  console.log(`Application started on URL ${HOST}:${PORT}`);
 });
