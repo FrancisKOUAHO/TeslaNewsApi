@@ -1,5 +1,8 @@
 {
   "name": "TeslaNewsApi",
+  "engines": {
+    "node": "12.18.3"
+  },
   "version": "1.0.0",
   "main": "dist/app.js",
   "scripts": {
