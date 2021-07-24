@@ -12,7 +12,7 @@ import { apiDocumentation } from "./docs/apidoc";
 
 dotenv.config();
 
-const port = parseInt(process.env.port || "8081");
+const port = parseInt(process.env.port || "8080");
 
 const app = express();
 
