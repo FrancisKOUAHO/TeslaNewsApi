@@ -12,7 +12,7 @@ import { apiDocumentation } from "./docs/apidoc";
 
 dotenv.config();
 
-const PORT = parseInt(process.env.port || "8081");
+const port = parseInt(process.env.port || "8081");
 
 const app = express();
 
@@ -30,8 +30,8 @@ app.get("/", (req, res) => {
   return res.json({ message: "Hello World!" });
 });
 
-app.listen(PORT, async () => {
+app.listen(port, async () => {
   await connectToDatabase();
 
-  console.log(`Application started on URL http://localhost:${PORT}`);
+  console.log(`Application started on URL http://localhost:${port}`);
 });
