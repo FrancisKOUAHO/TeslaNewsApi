@@ -15,4 +15,6 @@ artifacts:
   files:
     - package.json
     - package-lock.json
-    - 'dist/**/*'
+    - app.js
+    - dist/**/*
+    - node_modules/**/*
