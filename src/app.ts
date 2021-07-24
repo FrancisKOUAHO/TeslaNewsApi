@@ -24,11 +24,8 @@ app.use("/", userRoute());
 app.use("/", postRoute());
 app.use("/", categoryRoute());
 app.use("/", tagRoute());
-app.use("/documentation", swaggerUi.serve, swaggerUi.setup(apiDocumentation));
+app.use("/", swaggerUi.serve, swaggerUi.setup(apiDocumentation));
 
-app.get("/", (req, res) => {
-  return res.json({ message: "Hello World!" });
-});
 
 app.listen(port, async () => {
   await connectToDatabase();
