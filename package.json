@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "dist/app.js",
   "engines": { "node" : "14.16.0" },
+  "engineStrict" : true,
   "scripts": {
     "build": "tsc",
     "dev": "concurrently -k -n \"Typescript,Node\" -p \"[{name}]\" -c \"blue,green\" \"tsc --watch\" \"nodemon dist/app.js\"",
