@@ -39,6 +39,6 @@ const tagsSchema = new Schema(
   },
 );
 
-const Tag: Model<TagDocument> = mongoose.model<TagDocument>('TagModel', tagsSchema);
+const Tag: Model<TagDocument> = mongoose.model<TagDocument>('Tag', tagsSchema);
 
 export { Tag, TagInput, TagDocument };

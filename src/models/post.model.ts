@@ -1,6 +1,5 @@
 import mongoose, { Schema, Model, Document } from 'mongoose';
-import { CategoryDocument } from "./category.model";
-import { TagDocument } from "./tag.model";
+
 
 type PostDocument = Document & {
   title: string;
@@ -11,7 +10,8 @@ type PostDocument = Document & {
   publishedAt: string;
   content: string;
   category: string;
-  tag: string
+  tag: string,
+  NumberPeopleSaw: number
 };
 
 type PostInput = {
@@ -24,6 +24,7 @@ type PostInput = {
   content:PostDocument['content'];
   category: PostDocument['category'];
   tag: PostDocument['tag'];
+    NumberPeopleSaw: PostDocument['NumberPeopleSaw'];
 };
 
 const postsSchema = new Schema(
@@ -59,13 +60,19 @@ const postsSchema = new Schema(
     category: {
       type: Schema.Types.ObjectId,
       ref: 'category',
-      required: true,
+      required: false,
       index: true,
     },
     tag: {
       type: Schema.Types.ObjectId,
       ref: 'tag',
-      required: true,
+      required: false,
+      index: true,
+    },
+      NumberPeopleSaw: {
+      type: Schema.Types.ObjectId,
+      ref: 'NumberPeopleSaw',
+      required: false,
       index: true,
     },
   },

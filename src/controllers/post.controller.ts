@@ -5,9 +5,9 @@ import { Post, PostInput } from "../models/post.model";
 
 // POST - /posts # inserts a new posts in table
 const createPost = async (req: Request, res: Response) => {
-  const { title, metaTitle, slug, summary, published, publishedAt, content, category, tag } = req.body;
+  const { title, metaTitle, slug, summary, published, publishedAt, content, category, tag, NumberPeopleSaw } = req.body;
 
-  if (!title || !metaTitle || !slug || !summary || !published || !publishedAt || !content || !category || !tag) {
+  if (!title || !metaTitle || !slug || !summary || !published || !publishedAt || !content || !category || !tag || !NumberPeopleSaw) {
     return res.status(422).json({ message: "Les champs title, metaTitle, slug, summary, published, publishedAt, content, category, tag sont obligatoires." });
   }
 
@@ -20,7 +20,8 @@ const createPost = async (req: Request, res: Response) => {
     publishedAt,
     content,
     category,
-    tag
+    tag,
+    NumberPeopleSaw
   };
 
   const postCreated = await Post.create(postInput);
