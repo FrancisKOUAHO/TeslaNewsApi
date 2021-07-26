@@ -1,4 +1,4 @@
-const postResponseWithRole = {
+const articleResponse = {
   _id: {
     type: 'string',
     example: '60564fcb544047cdc3844818',
@@ -58,7 +58,7 @@ const internalServerError = {
   },
 };
 
-const postNotFound = {
+const articleNotFound = {
   description: 'Resource not found',
   content: {
     'application/json': {
@@ -75,7 +75,7 @@ const postNotFound = {
   },
 };
 
-const invalidPostData = {
+const invalidArticleData = {
   description: 'Invalid Data provided',
   content: {
     'application/json': {
@@ -98,7 +98,7 @@ const security = [
   },
 ];
 
-const createPostBody = {
+const createArticleBody = {
   type: 'object',
   properties: {
     _id: {
@@ -144,7 +144,7 @@ const createPostBody = {
   },
 };
 
-const updatePostBody = {
+const updateArticleBody = {
   type: 'object',
   properties: {
     _id: {
@@ -182,10 +182,10 @@ const updatePostBody = {
   },
 };
 
-const createPost = {
-  tags: ['Posts'],
-  description: 'Create a new post in the system',
-  operationId: 'createPost',
+const createArticle = {
+  tags: ['Articles'],
+  description: 'Create a new article in the system',
+  operationId: 'createArticle',
   security: [
     {
       bearerAuth: [],
@@ -254,15 +254,15 @@ const createPost = {
         },
       },
     },
-    '422': invalidPostData,
+    '422': invalidArticleData,
     '500': internalServerError,
   },
 };
 
-const getAllPosts = {
-  tags: ['Posts'],
+const getAllArticles = {
+  tags: ['Articles'],
   description: 'Retrieve all the users',
-  operationId: 'getAllPosts',
+  operationId: 'getAllArticles',
   security: [
     {
       bearerAuth: [],
@@ -270,14 +270,14 @@ const getAllPosts = {
   ],
   responses: {
     '200': {
-      description: 'posts retrieved successfully!',
+      description: 'articles retrieved successfully!',
       content: {
         'application/json': {
           schema: {
             type: 'array',
             items: {
               type: 'object',
-              properties: postResponseWithRole,
+              properties: articleResponse,
             },
           },
         },
@@ -287,10 +287,10 @@ const getAllPosts = {
   },
 };
 
-const getPost = {
-  tags: ['Posts'],
+const getArticle = {
+  tags: ['Articles'],
   description: 'Retrieve one user',
-  operationId: 'getPost',
+  operationId: 'getArticle',
   security: [
     {
       bearerAuth: [],
@@ -312,20 +312,20 @@ const getPost = {
         'application/json': {
           schema: {
             type: 'object',
-            properties: postResponseWithRole,
+            properties: articleResponse,
           },
         },
       },
     },
-    '404': postNotFound,
+    '404': articleNotFound,
     '500': internalServerError,
   },
 };
 
-const updatePost = {
-  tags: ['Posts'],
-  description: 'Update a post',
-  operationId: 'updatePost',
+const updateArticle = {
+  tags: ['Articles'],
+  description: 'Update a article',
+  operationId: 'updateArticle',
   security,
   parameters: [
     {
@@ -356,21 +356,21 @@ const updatePost = {
         'application/json': {
           schema: {
             type: 'object',
-            properties: postResponseWithRole,
+            properties: articleResponse,
           },
         },
       },
     },
-    '404': postNotFound,
-    '422': invalidPostData,
+    '404': articleNotFound,
+    '422': invalidArticleData,
     '500': internalServerError,
   },
 };
 
-const deletePost = {
-  tags: ['Posts'],
-  description: 'Delete a post',
-  operationId: 'deletePost',
+const deleteArticle = {
+  tags: ['Articles'],
+  description: 'Delete a Article',
+  operationId: 'deleteArticle',
   security: [
     {
       bearerAuth: [],
@@ -424,4 +424,4 @@ const deletePost = {
   },
 };
 
-export { createPost, deletePost, getAllPosts, getPost, updatePost };
+export { createArticle, deleteArticle, getAllArticles, getArticle, updateArticle };

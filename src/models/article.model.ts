@@ -1,7 +1,7 @@
 import mongoose, { Schema, Model, Document } from 'mongoose';
 
 
-type PostDocument = Document & {
+type ArticleDocument = Document & {
   title: string;
   metaTitle: string;
   slug: string;
@@ -14,20 +14,20 @@ type PostDocument = Document & {
   NumberPeopleSaw: number
 };
 
-type PostInput = {
-  title: PostDocument['title'];
-  metaTitle: PostDocument['metaTitle'];
-  slug: PostDocument['slug'];
-  summary: PostDocument['summary'];
-  published: PostDocument['published'];
-  publishedAt: PostDocument['publishedAt'];
-  content:PostDocument['content'];
-  category: PostDocument['category'];
-  tag: PostDocument['tag'];
-    NumberPeopleSaw: PostDocument['NumberPeopleSaw'];
+type ArticleInput = {
+  title: ArticleDocument['title'];
+  metaTitle: ArticleDocument['metaTitle'];
+  slug: ArticleDocument['slug'];
+  summary: ArticleDocument['summary'];
+  published: ArticleDocument['published'];
+  publishedAt: ArticleDocument['publishedAt'];
+  content:ArticleDocument['content'];
+  category: ArticleDocument['category'];
+  tag: ArticleDocument['tag'];
+    NumberPeopleSaw: ArticleDocument['NumberPeopleSaw'];
 };
 
-const postsSchema = new Schema(
+const articlesSchema = new Schema(
   {
     title: {
       type: Schema.Types.String,
@@ -82,6 +82,6 @@ const postsSchema = new Schema(
   },
 );
 
-const Post: Model<PostDocument> = mongoose.model<PostDocument>('Post', postsSchema);
+const Article: Model<ArticleDocument> = mongoose.model<ArticleDocument>('Article', articlesSchema);
 
-export { Post, PostInput, PostDocument };
+export { Article, ArticleInput, ArticleDocument };

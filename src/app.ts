@@ -5,7 +5,7 @@ import swaggerUi from "swagger-ui-express";
 import { connectToDatabase } from "./databaseConnection";
 import { roleRoute } from "./routes/role.route";
 import { userRoute } from "./routes/user.route";
-import { postRoute } from "./routes/post.route";
+import { articleRoute } from "./routes/article.route";
 import { categoryRoute } from "./routes/category.route";
 import { tagRoute } from "./routes/tag.route";
 import { apiDocumentation } from "./docs/apidoc";
@@ -21,7 +21,7 @@ app.use(express.json());
 
 app.use("/", roleRoute());
 app.use("/", userRoute());
-app.use("/", postRoute());
+app.use("/", articleRoute());
 app.use("/", categoryRoute());
 app.use("/", tagRoute());
 app.use("/", swaggerUi.serve, swaggerUi.setup(apiDocumentation));

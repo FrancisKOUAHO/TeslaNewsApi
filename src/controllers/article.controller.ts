@@ -1,17 +1,17 @@
 import { Request, Response } from "express";
 
-import { Post, PostInput } from "../models/post.model";
+import { Article, ArticleInput } from "../models/article.model";
 
 
 // POST - /posts # inserts a new posts in table
-const createPost = async (req: Request, res: Response) => {
+const createArticle = async (req: Request, res: Response) => {
   const { title, metaTitle, slug, summary, published, publishedAt, content, category, tag, NumberPeopleSaw } = req.body;
 
   if (!title || !metaTitle || !slug || !summary || !published || !publishedAt || !content || !category || !tag || !NumberPeopleSaw) {
     return res.status(422).json({ message: "Les champs title, metaTitle, slug, summary, published, publishedAt, content, category, tag sont obligatoires." });
   }
 
-  const postInput: PostInput = {
+  const articleInput: ArticleInput = {
     title,
     metaTitle,
     slug,
@@ -24,51 +24,51 @@ const createPost = async (req: Request, res: Response) => {
     NumberPeopleSaw
   };
 
-  const postCreated = await Post.create(postInput);
+  const articleCreated = await Article.create(articleInput);
 
-  return res.status(201).json({ data: postCreated });
+  return res.status(201).json({ data: articleCreated });
 };
 
 
 // - GET - /posts # return all posts
-const getAllPosts = async (req: Request, res: Response) => {
-  let posts = await Post.find((err: any, posts: any) => {
+const getAllArticles = async (req: Request, res: Response) => {
+  let articles = await Article.find((err: any, articles: any) => {
     if (err) {
       return res.status(422).json({ message: "Impossible de récupérer les articles" });
     } else {
-      res.send(posts);
+      res.send(articles);
     }
   });
 };
 
 
 // - GET - /posts/{id} # return a posts id
-const getPost = async (req: Request, res: Response) => {
-  await Post.findById(req.params.id, (err: any, post: any) =>{
+const getArticle = async (req: Request, res: Response) => {
+  await Article.findById(req.params.id, (err: any, article: any) =>{
     if (err) {
       return res.status(422).json({ message: "Impossible de récupérer l'id d'un article" });
     } else {
-      res.send(post);
+      res.send(article);
     }
   })
 };
 
 // - PATCH - /posts/{id} # return a posts id
-const updatePost = async (req: Request, res: Response) => {
-  Post.findByIdAndUpdate(req.params.id, req.body, (err: any, post: any)=>{
+const updateArticle = async (req: Request, res: Response) => {
+  Article.findByIdAndUpdate(req.params.id, req.body, (err: any, article: any)=>{
     if (err) {
       return res.status(422).json({ message: "Impossible de mettre à jour l'article" });
     } else {
-      res.send(post);
+      res.send(article);
     }
   })
 };
 
 
 // - DELETE - /posts/{1} # return a posts id 1
-const deletePost = async (req: Request, res: Response) => {
+const deleteArticle = async (req: Request, res: Response) => {
   // @ts-ignore
-  await Post.deleteOne({ _id: req.params.id }, (err) =>{
+  await Article.deleteOne({ _id: req.params.id }, (err) =>{
     if (err) {
       res.send(err);
     } else {
@@ -77,6 +77,6 @@ const deletePost = async (req: Request, res: Response) => {
   });
 }
 
-export { createPost, deletePost, getAllPosts, getPost, updatePost };
+export { createArticle, deleteArticle, getAllArticles, getArticle, updateArticle };
 
 
